@@ -29,6 +29,7 @@ const learningModules = [
     id: "05",
     title: "Everyday Skills",
     description: "Build confidence with daily digital tasks like maps, forms, messaging, and searches.",
+    href: "/everyday-skills",
   },
 ];
 

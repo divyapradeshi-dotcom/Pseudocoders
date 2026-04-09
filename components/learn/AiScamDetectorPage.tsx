@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   AlertCircle,
   MessageCircle,
@@ -15,6 +16,7 @@ const tools = [
     description: "Analyze messages and links for scam indicators",
     icon: Search,
     iconClassName: "bg-red-500",
+    href: "/red-flag-detector",
   },
   {
     title: "Deepfake Lab",
@@ -27,6 +29,7 @@ const tools = [
     description: "Practice spotting scams in realistic conversations",
     icon: MessageCircle,
     iconClassName: "bg-orange-500",
+    href: "/scam-chat-simulator",
   },
 ];
 
@@ -99,12 +102,21 @@ export function AiScamDetectorPage() {
                     </p>
                   </div>
                 </div>
-                <button
-                  type="button"
-                  className="mt-8 inline-flex w-full items-center justify-center rounded-[1.5rem] bg-blue-600 px-6 py-5 text-2xl font-semibold text-white shadow-[0_8px_20px_rgba(37,99,235,0.3)] transition-colors hover:bg-blue-700"
-                >
-                  Open Tool
-                </button>
+                {tool.href ? (
+                  <Link
+                    href={tool.href}
+                    className="mt-8 inline-flex w-full items-center justify-center rounded-[1.5rem] bg-blue-600 px-6 py-5 text-2xl font-semibold text-white shadow-[0_8px_20px_rgba(37,99,235,0.3)] transition-colors hover:bg-blue-700"
+                  >
+                    Open Tool
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    className="mt-8 inline-flex w-full items-center justify-center rounded-[1.5rem] bg-blue-600 px-6 py-5 text-2xl font-semibold text-white shadow-[0_8px_20px_rgba(37,99,235,0.3)] transition-colors hover:bg-blue-700"
+                  >
+                    Open Tool
+                  </button>
+                )}
               </article>
             ))}
           </div>

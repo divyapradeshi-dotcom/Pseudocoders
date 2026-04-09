@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { CreditCard, Lock, Phone, Volume2 } from "lucide-react";
 
 const progressItems = [
@@ -13,16 +14,19 @@ const simulationCards = [
     title: "Safe Login Practice",
     description: "Learn to create strong passwords and login securely",
     icon: Lock,
+    href: "/safe-login-practice",
   },
   {
     title: "UPI Payment Safety",
     description: "Make safe UPI transactions and verify details",
     icon: CreditCard,
+    href: "/upi-payment-safety",
   },
   {
     title: "Spot Scam Calls",
     description: "Identify fake bank calls and protect your account",
     icon: Phone,
+    href: "/spot-scam-calls",
   },
 ];
 
@@ -83,12 +87,21 @@ export function BankingLearnPage() {
                     </p>
                   </div>
                 </div>
-                <button
-                  type="button"
-                  className="mt-8 inline-flex w-full items-center justify-center rounded-[1.5rem] bg-blue-600 px-6 py-5 text-2xl font-semibold text-white shadow-[0_8px_20px_rgba(37,99,235,0.3)] transition-colors hover:bg-blue-700"
-                >
-                  Start Simulation
-                </button>
+                {card.href ? (
+                  <Link
+                    href={card.href}
+                    className="mt-8 inline-flex w-full items-center justify-center rounded-[1.5rem] bg-blue-600 px-6 py-5 text-2xl font-semibold text-white shadow-[0_8px_20px_rgba(37,99,235,0.3)] transition-colors hover:bg-blue-700"
+                  >
+                    Start Simulation
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    className="mt-8 inline-flex w-full items-center justify-center rounded-[1.5rem] bg-blue-600 px-6 py-5 text-2xl font-semibold text-white shadow-[0_8px_20px_rgba(37,99,235,0.3)] transition-colors hover:bg-blue-700"
+                  >
+                    Start Simulation
+                  </button>
+                )}
               </article>
             ))}
           </div>
